@@ -3,3 +3,7 @@ __pycache__/
 
 # mac os files
 **/.DS_store
+
+# python build files
+ftp_to_s3.egg-info/
+build/
