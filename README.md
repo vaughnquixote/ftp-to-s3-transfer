@@ -1,4 +1,4 @@
-# ftp-to-s3-tool
+# FTP to S3 Transfer Tool
 This is a utility written in python to transfer files from an FTP server to an AWS S3 bucket. 
 
 ## Usage Notes
