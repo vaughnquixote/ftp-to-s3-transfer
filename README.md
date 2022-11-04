@@ -15,6 +15,9 @@ This was origingally written to transfer all of the files from a given directory
 ### Parallel Execution
 The transfer of all files from a given directory can be parallelized. The number of threads to run with can be configured. The biggest contributor to latency in the transfer process is IO, so multithreading can significantly improve the performance of the transfer of many files.
 
+### Retries
+If any files in the given directory failed to be transferred for some reason, there will be one retry.
+
 ### Sample Script
 Here is a sample of how the utility could be used as a python script:
 ```
@@ -31,7 +34,7 @@ Here is a sample of how the utility could be used as a python script:
     ftp_to_s3 = FTPToS3(ftp_host, s3_bucket_name, num_threads=num_threads, log_level=log_level)
 
     # output is a list of failed filenames, the expected number transferred and # the actual number transferred
-    failed_files, expected_num_files, actual_num_files = ftp_to_s3.transfer("/source/ftp/dir", "/target/s3/prefix")
+    failed_files, expected_num_files, actual_num_files = ftp_to_s3.transfer("/source/ftp/dir", "/target/s3/prefix/")
 
     print(f"The expected number of files transferred: {expected_num_files}")
     print(f"The actual number of files transferred: {actual_num_files}")
